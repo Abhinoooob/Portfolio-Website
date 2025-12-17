@@ -4,6 +4,7 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from "@emailjs/browser";
 
 const contactInfo = [
   {
@@ -22,22 +23,18 @@ const contactInfo = [
     icon: Linkedin,
     label: "LinkedIn",
     value: "Abhinav Chhetri",
-    href: "https://linkedin.com/in/abhinav-chhetri",
+    href: "https://www.linkedin.com/in/abhinav-chhetri-a23963298/",
   },
   {
     icon: Instagram,
     label: "Instagram",
     value: "@abhinav.chhetri",
-    href: "https://instagram.com/abhinav.chhetri",
+    href: "https://instagram.com/abhinoooob",
   },
 ];
 
 const ContactSection = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
@@ -45,15 +42,33 @@ const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
 
-    toast({
-      title: "Message Sent! 🎉",
-      description: "Thank you for reaching out. I'll get back to you soon!",
-    });
+      toast({
+        title: "Message Sent! 🎉",
+        description: "Thank you for reaching out. I'll get back to you soon!",
+      });
 
-    setFormData({ name: "", email: "", message: "" });
-    setIsSubmitting(false);
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      toast({
+        title: "Error ❌",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -101,15 +116,13 @@ const ContactSection = () => {
                 <MessageCircle className="w-5 h-5 text-primary" />
                 <h3 className="font-bold text-lg">Send a Message</h3>
               </div>
-              
+
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <Input
                     placeholder="Your Name"
                     value={formData.name}
-                    onChange={(e) =>
-                      setFormData({ ...formData, name: e.target.value })
-                    }
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     required
                     className="rounded-xl h-12"
                   />
@@ -119,9 +132,7 @@ const ContactSection = () => {
                     type="email"
                     placeholder="Your Email"
                     value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     required
                     className="rounded-xl h-12"
                   />
@@ -131,22 +142,21 @@ const ContactSection = () => {
                     placeholder="Tell me about your project..."
                     rows={4}
                     value={formData.message}
-                    onChange={(e) =>
-                      setFormData({ ...formData, message: e.target.value })
-                    }
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     required
                     className="rounded-xl resize-none"
                   />
                 </div>
-                <Button type="submit" size="lg" className="w-full rounded-full gap-2" disabled={isSubmitting}>
-                  {isSubmitting ? (
-                    "Sending..."
-                  ) : (
-                    <>
-                      <Send size={18} />
-                      Shoot Message
-                    </>
-                  )}
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="w-full rounded-full gap-2"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Sending..." : <>
+                    <Send size={18} />
+                    Shoot Message
+                  </>}
                 </Button>
               </form>
             </div>

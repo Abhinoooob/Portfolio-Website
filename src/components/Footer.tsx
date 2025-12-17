@@ -25,7 +25,7 @@ const Footer = () => {
           
           <div className="flex items-center gap-4">
             <a
-              href="https://linkedin.com/in/abhinav-chhetri"
+              href="https://www.linkedin.com/in/abhinav-chhetri-a23963298/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 bg-muted rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
@@ -33,7 +33,7 @@ const Footer = () => {
               <Linkedin size={18} />
             </a>
             <a
-              href="https://github.com"
+              href="https://github.com/Abhinoooob"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 bg-muted rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
@@ -41,7 +41,7 @@ const Footer = () => {
               <Github size={18} />
             </a>
             <a
-              href="https://instagram.com/abhinav.chhetri"
+              href="https://instagram.com/abhinoooob"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 bg-muted rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
@@ -53,8 +53,7 @@ const Footer = () => {
 
         <div className="mt-8 pt-6 border-t border-border text-center">
           <p className="text-muted-foreground text-sm flex items-center justify-center gap-1">
-            © {currentYear} Abhinav Chhetri. Made with{" "}
-            <Heart size={14} className="text-primary fill-primary" /> in Nepal
+            © {currentYear} Abhinav Chhetri. 
           </p>
         </div>
       </div>

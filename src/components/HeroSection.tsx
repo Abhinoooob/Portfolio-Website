@@ -22,9 +22,9 @@ const HeroSection = () => {
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 animate-fade-in" style={{ animationDelay: "0.1s" }}>
-              Hy! I Am{" "}
+              {" "}
               <span className="text-primary">Abhinav</span>
-              <span className="inline-block ml-2">🚀</span>
+              <span className="inline-block ml-2">😀</span>
             </h1>
             
             <p className="text-muted-foreground max-w-lg mx-auto lg:mx-0 mb-8 animate-fade-in leading-relaxed" style={{ animationDelay: "0.2s" }}>
