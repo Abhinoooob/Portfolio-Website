@@ -1,58 +1,84 @@
-import { Globe, Brain, Layers, ArrowRight } from "lucide-react";
+import { Globe, Brain, Layers } from "lucide-react";
 import { Button } from "./ui/button";
 
 const services = [
   {
     icon: Globe,
     title: "Web Development",
+    emoji: "🌐",
     description:
-      "Building modern, responsive websites and web applications using React, JavaScript, and cutting-edge technologies. From landing pages to full-fledged web apps.",
+      "Building modern, responsive websites and web applications using React, JavaScript, and cutting-edge technologies.",
+    color: "from-orange-500/20 to-yellow-500/20",
   },
   {
     icon: Brain,
     title: "AI/ML Projects",
+    emoji: "🤖",
     description:
-      "Developing intelligent solutions using Python, machine learning algorithms, and AI frameworks. Data analysis, automation, and smart applications.",
+      "Developing intelligent solutions using Python, machine learning algorithms, and AI frameworks for automation.",
+    color: "from-purple-500/20 to-pink-500/20",
   },
   {
     icon: Layers,
     title: "Full-Stack Solutions",
+    emoji: "⚡",
     description:
-      "End-to-end development with frontend, backend, and database integration. Complete solutions using FastAPI, React, and modern databases.",
+      "End-to-end development with frontend, backend, and database integration using modern tech stacks.",
+    color: "from-blue-500/20 to-cyan-500/20",
   },
 ];
 
 const ServicesSection = () => {
   return (
-    <section id="services" className="py-20 md:py-28 bg-card/50 relative">
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-12">
-          <p className="text-muted-foreground text-sm mb-2 uppercase tracking-wide">What I Offer</p>
-          <h2 className="text-2xl md:text-3xl font-semibold">My Services</h2>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {services.map((service, index) => (
-            <div
-              key={service.title}
-              className="group bg-background border border-border rounded-lg p-6 hover:border-muted-foreground/30 transition-all duration-300"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center mb-5">
-                <service.icon className="text-foreground" size={20} />
+    <section id="services" className="py-20 md:py-28 bg-muted/50 relative">
+      <div className="container mx-auto px-6">
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
+          {/* Left Side - Service Cards */}
+          <div className="space-y-4">
+            {services.map((service, index) => (
+              <div
+                key={service.title}
+                className="bg-card shadow-card rounded-3xl p-6 hover:shadow-soft transition-all duration-300 group cursor-pointer"
+              >
+                <div className="flex items-start gap-4">
+                  <div className={`w-14 h-14 bg-gradient-to-br ${service.color} rounded-2xl flex items-center justify-center shrink-0`}>
+                    <span className="text-2xl">{service.emoji}</span>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">
+                      {service.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {service.description}
+                    </p>
+                  </div>
+                </div>
               </div>
-              <h3 className="text-lg font-medium mb-3">{service.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-5">
-                {service.description}
-              </p>
-              <Button variant="ghost" className="group/btn p-0 h-auto text-sm" asChild>
-                <a href="#contact" className="text-muted-foreground hover:text-foreground flex items-center gap-2">
-                  Learn More 
-                  <ArrowRight size={14} className="group-hover/btn:translate-x-1 transition-transform" />
-                </a>
-              </Button>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          {/* Right Side - Content */}
+          <div className="lg:sticky lg:top-32">
+            <p className="text-primary font-medium mb-2">What I Offer</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              My Awesome <br />
+              <span className="text-primary">Services</span> ✨
+            </h2>
+            
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              I provide comprehensive digital solutions tailored to your needs. 
+              From beautiful websites to intelligent AI applications, I've got you covered.
+            </p>
+
+            <p className="text-muted-foreground leading-relaxed mb-8">
+              Each project is crafted with attention to detail, ensuring high quality, 
+              scalability, and user satisfaction.
+            </p>
+
+            <Button size="lg" className="rounded-full px-8" asChild>
+              <a href="#contact">Let's Work Together</a>
+            </Button>
+          </div>
         </div>
       </div>
     </section>
