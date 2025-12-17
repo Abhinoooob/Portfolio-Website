@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Mail, Phone, Linkedin, Instagram, Send } from "lucide-react";
+import { Mail, Phone, Linkedin, Instagram, Send, MessageCircle } from "lucide-react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
@@ -45,11 +45,10 @@ const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     toast({
-      title: "Message Sent!",
+      title: "Message Sent! 🎉",
       description: "Thank you for reaching out. I'll get back to you soon!",
     });
 
@@ -58,104 +57,99 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-28 bg-card/50 relative">
+    <section id="contact" className="py-20 md:py-28 bg-muted/50 relative">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-12">
-          <p className="text-muted-foreground text-sm mb-2 uppercase tracking-wide">Get In Touch</p>
-          <h2 className="text-2xl md:text-3xl font-semibold">Contact Me</h2>
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-10 max-w-5xl mx-auto">
-          {/* Contact Info */}
-          <div>
-            <h3 className="text-lg font-medium mb-4">Let's Talk</h3>
-            <p className="text-muted-foreground text-sm mb-6 leading-relaxed">
-              I'm always open to discussing new projects, creative ideas, or opportunities 
-              to be part of your vision.
+        <div className="max-w-4xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-12">
+            <p className="text-primary font-medium mb-2">Get In Touch</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Ready To Get <span className="text-primary">Started?</span> 💬
+            </h2>
+            <p className="text-muted-foreground max-w-lg mx-auto">
+              You know about me, let's talk about you. I'm always excited to work on new projects!
             </p>
+          </div>
 
-            <div className="space-y-3">
+          <div className="grid lg:grid-cols-2 gap-10">
+            {/* Contact Info */}
+            <div className="space-y-4">
               {contactInfo.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
                   target={item.href.startsWith("http") ? "_blank" : undefined}
                   rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="flex items-center gap-4 p-4 bg-background border border-border rounded-lg hover:border-muted-foreground/30 transition-colors group"
+                  className="flex items-center gap-4 p-4 bg-card shadow-card rounded-2xl hover:shadow-soft transition-all group"
                 >
-                  <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
-                    <item.icon className="text-foreground" size={18} />
+                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                    <item.icon size={20} />
                   </div>
                   <div>
                     <p className="text-xs text-muted-foreground">{item.label}</p>
-                    <p className="text-sm group-hover:text-foreground transition-colors">
+                    <p className="font-medium group-hover:text-primary transition-colors">
                       {item.value}
                     </p>
                   </div>
                 </a>
               ))}
             </div>
-          </div>
 
-          {/* Contact Form */}
-          <div className="bg-background border border-border rounded-lg p-6">
-            <h3 className="text-lg font-medium mb-5">Send a Message</h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="text-sm font-medium mb-2 block">
-                  Your Name
-                </label>
-                <Input
-                  id="name"
-                  placeholder="John Doe"
-                  value={formData.name}
-                  onChange={(e) =>
-                    setFormData({ ...formData, name: e.target.value })
-                  }
-                  required
-                />
+            {/* Contact Form */}
+            <div className="bg-card shadow-card rounded-3xl p-8">
+              <div className="flex items-center gap-2 mb-6">
+                <MessageCircle className="w-5 h-5 text-primary" />
+                <h3 className="font-bold text-lg">Send a Message</h3>
               </div>
-              <div>
-                <label htmlFor="email" className="text-sm font-medium mb-2 block">
-                  Your Email
-                </label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="john@example.com"
-                  value={formData.email}
-                  onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
-                  }
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor="message" className="text-sm font-medium mb-2 block">
-                  Your Message
-                </label>
-                <Textarea
-                  id="message"
-                  placeholder="Tell me about your project..."
-                  rows={5}
-                  value={formData.message}
-                  onChange={(e) =>
-                    setFormData({ ...formData, message: e.target.value })
-                  }
-                  required
-                />
-              </div>
-              <Button type="submit" size="lg" className="w-full gap-2" disabled={isSubmitting}>
-                {isSubmitting ? (
-                  "Sending..."
-                ) : (
-                  <>
-                    <Send size={18} />
-                    Send Message
-                  </>
-                )}
-              </Button>
-            </form>
+              
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div>
+                  <Input
+                    placeholder="Your Name"
+                    value={formData.name}
+                    onChange={(e) =>
+                      setFormData({ ...formData, name: e.target.value })
+                    }
+                    required
+                    className="rounded-xl h-12"
+                  />
+                </div>
+                <div>
+                  <Input
+                    type="email"
+                    placeholder="Your Email"
+                    value={formData.email}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
+                    required
+                    className="rounded-xl h-12"
+                  />
+                </div>
+                <div>
+                  <Textarea
+                    placeholder="Tell me about your project..."
+                    rows={4}
+                    value={formData.message}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
+                    required
+                    className="rounded-xl resize-none"
+                  />
+                </div>
+                <Button type="submit" size="lg" className="w-full rounded-full gap-2" disabled={isSubmitting}>
+                  {isSubmitting ? (
+                    "Sending..."
+                  ) : (
+                    <>
+                      <Send size={18} />
+                      Shoot Message
+                    </>
+                  )}
+                </Button>
+              </form>
+            </div>
           </div>
         </div>
       </div>

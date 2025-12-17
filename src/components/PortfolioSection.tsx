@@ -5,16 +5,20 @@ const projects = [
   {
     title: "E-commerce Price Monitor",
     description:
-      "A comprehensive price tracking system that monitors product prices from Nepal's major e-commerce platforms like Jevee, Daraz, Sybazaar, and SastoDeal. Get alerts when prices drop!",
-    technologies: ["Python", "FastAPI", "React", "PostgreSQL", "Web Scraping"],
+      "A comprehensive price tracking system that monitors product prices from Nepal's major e-commerce platforms like Daraz, Sybazaar, and SastoDeal.",
+    technologies: ["Python", "FastAPI", "React", "PostgreSQL"],
     icon: ShoppingCart,
+    gradient: "from-orange-400 to-pink-500",
+    emoji: "🛒",
   },
   {
     title: "Futsal Booking System",
     description:
-      "A complete futsal ground booking management system with user authentication, real-time availability updates, and seamless booking experience for local futsal grounds.",
-    technologies: ["React", "Node.js", "MongoDB", "JWT Auth", "Tailwind CSS"],
+      "A complete futsal ground booking management system with user authentication and real-time availability updates.",
+    technologies: ["React", "Node.js", "MongoDB", "Tailwind"],
     icon: Calendar,
+    gradient: "from-blue-400 to-purple-500",
+    emoji: "⚽",
   },
 ];
 
@@ -22,25 +26,28 @@ const PortfolioSection = () => {
   return (
     <section id="portfolio" className="py-20 md:py-28 relative">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-12">
-          <p className="text-muted-foreground text-sm mb-2 uppercase tracking-wide">My Recent Work</p>
-          <h2 className="text-2xl md:text-3xl font-semibold">Featured Projects</h2>
+        <div className="text-center mb-16">
+          <p className="text-primary font-medium mb-2">My Work</p>
+          <h2 className="text-3xl md:text-4xl font-bold">
+            Recent <span className="text-primary">Projects</span> 🎯
+          </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project) => (
             <div
               key={project.title}
-              className="group bg-card border border-border rounded-lg overflow-hidden hover:border-muted-foreground/30 transition-all duration-300"
+              className="group bg-card shadow-card rounded-3xl overflow-hidden hover:shadow-soft transition-all duration-300"
             >
               {/* Project Header */}
-              <div className="h-40 bg-secondary flex items-center justify-center">
-                <project.icon size={48} className="text-muted-foreground" />
+              <div className={`h-48 bg-gradient-to-br ${project.gradient} flex items-center justify-center relative`}>
+                <span className="text-6xl">{project.emoji}</span>
+                <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent" />
               </div>
 
               {/* Content */}
               <div className="p-6">
-                <h3 className="text-lg font-medium mb-2 group-hover:text-foreground transition-colors">
+                <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-4">
@@ -48,11 +55,11 @@ const PortfolioSection = () => {
                 </p>
 
                 {/* Technologies */}
-                <div className="flex flex-wrap gap-2 mb-5">
+                <div className="flex flex-wrap gap-2 mb-6">
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="px-2 py-1 bg-secondary text-muted-foreground text-xs rounded"
+                      className="px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full"
                     >
                       {tech}
                     </span>
@@ -61,11 +68,11 @@ const PortfolioSection = () => {
 
                 {/* Actions */}
                 <div className="flex items-center gap-3">
-                  <Button variant="outline" size="sm" className="gap-2 text-xs">
+                  <Button variant="outline" size="sm" className="rounded-full gap-2">
                     <Github size={14} />
                     Code
                   </Button>
-                  <Button size="sm" className="gap-2 text-xs">
+                  <Button size="sm" className="rounded-full gap-2">
                     <ExternalLink size={14} />
                     Live Demo
                   </Button>
@@ -75,10 +82,10 @@ const PortfolioSection = () => {
           ))}
         </div>
 
-        <div className="text-center mt-10">
-          <Button variant="outline" asChild>
+        <div className="text-center mt-12">
+          <Button variant="outline" size="lg" className="rounded-full" asChild>
             <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="gap-2">
-              <Github size={16} />
+              <Github size={18} />
               View All on GitHub
             </a>
           </Button>

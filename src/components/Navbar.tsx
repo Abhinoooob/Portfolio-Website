@@ -7,7 +7,6 @@ const navLinks = [
   { name: "About", href: "#about" },
   { name: "Services", href: "#services" },
   { name: "Portfolio", href: "#portfolio" },
-  { name: "Contact", href: "#contact" },
 ];
 
 const Navbar = () => {
@@ -25,13 +24,13 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-background/90 backdrop-blur-md border-b border-border" : "bg-transparent"
+        scrolled ? "bg-card/95 backdrop-blur-md shadow-soft" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <a href="#home" className="text-lg font-medium tracking-tight">
-            Abhinav<span className="text-muted-foreground">.</span>
+          <a href="#home" className="text-xl font-bold">
+            Abhinav<span className="text-primary">.</span>
           </a>
 
           {/* Desktop Navigation */}
@@ -40,13 +39,13 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-muted-foreground hover:text-primary transition-colors duration-200 text-sm font-medium"
+                className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium"
               >
                 {link.name}
               </a>
             ))}
-            <Button variant="outline" size="sm" asChild>
-              <a href="#contact">Let's Talk</a>
+            <Button className="rounded-full px-6" asChild>
+              <a href="#contact">Contact Me</a>
             </Button>
           </div>
 
@@ -67,14 +66,14 @@ const Navbar = () => {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-muted-foreground hover:text-primary transition-colors duration-200"
+                  className="text-muted-foreground hover:text-primary transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}
                 </a>
               ))}
-              <Button variant="outline" size="sm" asChild className="w-fit">
-                <a href="#contact">Let's Talk</a>
+              <Button className="rounded-full w-fit" asChild>
+                <a href="#contact">Contact Me</a>
               </Button>
             </div>
           </div>
