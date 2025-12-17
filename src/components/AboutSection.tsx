@@ -19,8 +19,8 @@ const AboutSection = () => {
                 <GraduationCap className="text-primary" size={28} />
               </div>
               <h3 className="font-bold text-lg mb-1">Education</h3>
-              <p className="text-muted-foreground text-sm">BE Computer Eng.</p>
-              <p className="text-primary text-sm font-medium">TU, Nepal 2027</p>
+              <p className="text-muted-foreground text-sm">BE Computer Eng.(Running))</p>
+              <p className="text-primary text-sm font-medium">TU,Graduation Year: 2027</p>
             </div>
 
             <div className="bg-card shadow-card rounded-3xl p-6 text-center hover:shadow-soft transition-shadow mt-8">
