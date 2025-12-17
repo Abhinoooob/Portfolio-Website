@@ -23,7 +23,7 @@ const HeroSection = () => {
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 animate-fade-in" style={{ animationDelay: "0.1s" }}>
               {" "}
-              <span className="text-primary">Abhinav</span>
+              <span className="text-primary">Abhinav Chhetri</span>
               <span className="inline-block ml-2">😀</span>
             </h1>
             
