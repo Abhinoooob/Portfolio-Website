@@ -7,13 +7,12 @@ const Footer = () => {
     <footer className="py-8 border-t border-border">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <a href="#home" className="font-mono text-lg font-bold text-primary">
-            &lt;AC /&gt;
+          <a href="#home" className="text-sm font-medium">
+            Abhinav<span className="text-muted-foreground">.</span>
           </a>
           
-          <p className="text-muted-foreground text-sm flex items-center gap-1">
-            © {currentYear} Abhinav Chhetri. Built with{" "}
-            <Heart size={14} className="text-primary fill-primary" /> in Nepal
+          <p className="text-muted-foreground text-xs flex items-center gap-1">
+            © {currentYear} Abhinav Chhetri. Built with care in Nepal.
           </p>
 
           <div className="flex items-center gap-6">
