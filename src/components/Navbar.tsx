@@ -25,13 +25,13 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-background/80 backdrop-blur-lg border-b border-border" : "bg-transparent"
+        scrolled ? "bg-background/90 backdrop-blur-md border-b border-border" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <a href="#home" className="font-mono text-xl font-bold text-primary">
-            &lt;AC /&gt;
+          <a href="#home" className="text-lg font-medium tracking-tight">
+            Abhinav<span className="text-muted-foreground">.</span>
           </a>
 
           {/* Desktop Navigation */}

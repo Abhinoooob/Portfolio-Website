@@ -58,37 +58,37 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-32 bg-muted/30 relative">
+    <section id="contact" className="py-20 md:py-28 bg-card/50 relative">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <p className="text-primary font-mono text-sm mb-2">Get In Touch</p>
-          <h2 className="text-3xl md:text-4xl font-bold">Contact Me</h2>
+        <div className="text-center mb-12">
+          <p className="text-muted-foreground text-sm mb-2 uppercase tracking-wide">Get In Touch</p>
+          <h2 className="text-2xl md:text-3xl font-semibold">Contact Me</h2>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-10 max-w-5xl mx-auto">
           {/* Contact Info */}
           <div>
-            <h3 className="text-xl font-semibold mb-6">Let's Talk</h3>
-            <p className="text-muted-foreground mb-8 leading-relaxed">
+            <h3 className="text-lg font-medium mb-4">Let's Talk</h3>
+            <p className="text-muted-foreground text-sm mb-6 leading-relaxed">
               I'm always open to discussing new projects, creative ideas, or opportunities 
-              to be part of your vision. Feel free to reach out through any of the channels below!
+              to be part of your vision.
             </p>
 
-            <div className="space-y-4">
+            <div className="space-y-3">
               {contactInfo.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
                   target={item.href.startsWith("http") ? "_blank" : undefined}
                   rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="flex items-center gap-4 p-4 bg-card border border-border rounded-xl hover:border-primary/50 transition-colors group"
+                  className="flex items-center gap-4 p-4 bg-background border border-border rounded-lg hover:border-muted-foreground/30 transition-colors group"
                 >
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                    <item.icon className="text-primary" size={20} />
+                  <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+                    <item.icon className="text-foreground" size={18} />
                   </div>
                   <div>
-                    <p className="text-sm text-muted-foreground">{item.label}</p>
-                    <p className="font-medium group-hover:text-primary transition-colors">
+                    <p className="text-xs text-muted-foreground">{item.label}</p>
+                    <p className="text-sm group-hover:text-foreground transition-colors">
                       {item.value}
                     </p>
                   </div>
@@ -98,8 +98,8 @@ const ContactSection = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-card border border-border rounded-2xl p-8">
-            <h3 className="text-xl font-semibold mb-6">Send a Message</h3>
+          <div className="bg-background border border-border rounded-lg p-6">
+            <h3 className="text-lg font-medium mb-5">Send a Message</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="text-sm font-medium mb-2 block">
