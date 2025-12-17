@@ -84,7 +84,7 @@ const PortfolioSection = () => {
 
         <div className="text-center mt-12">
           <Button variant="outline" size="lg" className="rounded-full" asChild>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="gap-2">
+            <a href="https://github.com/Abhinoooob" target="_blank" rel="noopener noreferrer" className="gap-2">
               <Github size={18} />
               View All on GitHub
             </a>

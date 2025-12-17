@@ -28,7 +28,7 @@ const contactInfo = [
   {
     icon: Instagram,
     label: "Instagram",
-    value: "@abhinav.chhetri",
+    value: "@abhinoooob",
     href: "https://instagram.com/abhinoooob",
   },
 ];
